@@ -2,7 +2,6 @@ package task3;
 
 import java.io.*;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -41,7 +40,6 @@ public class Task3 {
                         if (test.get(i).replace(" ", "")
                                 .equals(values.get(j).replace(" ", ""))) {
                             temp = parseExchangeElement(test.get(i + 2), values.get(j + 1));
-                            System.out.println(temp);
                             if (test.get(i + 2).contains(",")) { // ищем запятую в строке test
                                 test.set(i + 2, temp.concat(",")); // меняем value в test
                             } else {
