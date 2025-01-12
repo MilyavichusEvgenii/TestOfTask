@@ -2,6 +2,7 @@ package task3;
 
 import java.io.*;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -29,6 +30,7 @@ public class Task3 {
         Pattern idValue = Pattern.compile("(\"id\":)\\s+\\d+,");
         Matcher mId;
         Matcher mValID;
+        String temp;
         for (int i = 0; i < test.size(); i++) {
             mId = idTest.matcher(test.get(i));
             if (mId.find()) { //Находим id в массиве test
@@ -38,10 +40,12 @@ public class Task3 {
                         // сравниваем id test и value
                         if (test.get(i).replace(" ", "")
                                 .equals(values.get(j).replace(" ", ""))) {
+                            temp = parseExchangeElement(test.get(i + 2), values.get(j + 1));
+                            System.out.println(temp);
                             if (test.get(i + 2).contains(",")) { // ищем запятую в строке test
-                                test.set(i + 2, values.get(j + 1).concat(",")); // меняем value в test
+                                test.set(i + 2, temp.concat(",")); // меняем value в test
                             } else {
-                                test.set(i + 2, values.get(j + 1));
+                                test.set(i + 2, temp);
                             }
                         }
                     }
@@ -58,5 +62,20 @@ public class Task3 {
             fw.flush();
         }
         fw.close();
+    }
+    public static String parseExchangeElement(String test, String values) {
+        String[] lineTest = test.split(" ");
+        String[] lineValues = values.split(" ");
+        lineTest[lineTest.length - 1] = " " +lineValues[lineValues.length - 1];
+        StringBuilder battery = new StringBuilder();
+        for (int i = 0; i < lineTest.length; i++) {
+            if (lineTest[i].isEmpty()) {
+                battery.append(" ");
+            } else {
+                battery.append(lineTest[i]);
+            }
+
+        }
+        return battery.toString();
     }
 }

@@ -14,35 +14,35 @@
     "values": [{
       "id": 345,
       "title": "Maxperf",
-    "value": "passed",
+      "value": "passed",
       "values": [ {
         "id": 230,
         "title": "Percent",
         "values": [{
           "id": 234,
           "title": "200",
-    "value": "passed"
+          "value": "passed"
         }, {
           "id": 653,
           "title": "300",
-    "value": "passed"
+          "value": "passed"
         }]
       }]
     }, {
       "id": 110,
       "title": "Stability test",
-    "value": "failed",
+      "value": "failed",
       "values": [ {
         "id": 261,
         "title": "Percent",
         "values": [{
           "id": 238,
           "title": "160",
-    "value": "passed"
+          "value": "passed"
         }, {
           "id": 690,
           "title": "240",
-    "value": "failed"
+          "value": "failed"
         }]
       }]
     }]
@@ -53,11 +53,11 @@
     "values": [{
       "id": 5321,
       "title": "Confidentiality",
-    "value": "passed"
+      "value": "passed"
     }, {
       "id": 5322,
       "title": "Integrity",
-    "value": "failed"
+      "value": "failed"
     }]
   }]
 }
