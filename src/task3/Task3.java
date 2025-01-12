@@ -61,6 +61,9 @@ public class Task3 {
         }
         fw.close();
     }
+    /*
+    Строки преобразуются в массив, заменяется элемент lineTest на элемент lineValue
+     */
     public static String parseExchangeElement(String test, String values) {
         String[] lineTest = test.split(" ");
         String[] lineValues = values.split(" ");
