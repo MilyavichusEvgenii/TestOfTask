@@ -7,9 +7,13 @@ import java.util.regex.Pattern;
 
 public class Task3 {
     public static void main(String[] args) throws IOException {
-        ArrayList<String> test = fileReader("src/task3/tests.json");
-        ArrayList<String> values = fileReader("src/task3/values.json");
-        parserJson(test, values, "src/task3/report.json");
+        String[] cmdInput = cmdInput(args);
+        if (cmdInput == null) {
+            return;
+        }
+        ArrayList<String> test = fileReader(cmdInput[0]);
+        ArrayList<String> values = fileReader(cmdInput[1]);
+        parserJson(test, values, cmdInput[2]);
     }
 
     public static ArrayList<String> fileReader(String filePath) throws IOException {
@@ -78,5 +82,19 @@ public class Task3 {
 
         }
         return battery.toString();
+    }
+
+    public static String[] cmdInput(String[] args) {
+        if (args.length == 0) {
+            System.out.println("Вы не ввели значение");
+            return null;
+        } else if (args.length == 1) {
+            System.out.println("Вы ввели:" + args[0] + ". Введите два значения");
+            return null;
+        } else if (args.length == 2) {
+            System.out.println("Вы ввели:" + args[0] + " , " + args[1] + ". Введите три значения");
+            return null;
+        }
+        return args;
     }
 }

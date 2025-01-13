@@ -5,8 +5,12 @@ import java.io.IOException;
 
 public class Task2 {
     public static void main(String[] args) throws IOException {
-        StringBuilder circle = fileReader("src/task2/circle.txt");
-        StringBuilder points = fileReader("src/task2/points.txt");
+        String[] input = cmdInput(args);
+        if (input == null) {
+            return;
+        }
+        StringBuilder circle = fileReader(input[0]);
+        StringBuilder points = fileReader(input[1]);
         resultCheckPoints(circle, points);
 
     }
@@ -19,11 +23,11 @@ public class Task2 {
         boolean inCircle = expression < Math.pow(rad, 2);
         boolean outCircle = expression > Math.pow(rad, 2);
         if (onCircle) {
-            System.out.println("0 - x: " + inX + " y: " + inY + "\r\n");
+            System.out.println("0 - точка лежит на окружности\r\n");
         } else if (inCircle) {
-            System.out.println("1 - x: " + inX + " y: " + inY + "\r\n");
+            System.out.println("1 - точка внутри\r\n");
         } else if (outCircle) {
-            System.out.println("2 - x: " + inX + " y: " + inY + "\r\n");
+            System.out.println("2 - точка снаружи\r\n");
         }
     }
     /*
@@ -73,5 +77,14 @@ public class Task2 {
         return arrPoints.length <= 100 ? true : false;
     }
 
-
+    public static String[] cmdInput(String[] args) {
+        if (args.length == 0) {
+            System.out.println("Вы не ввели значение");
+            return null;
+        } else if (args.length == 1) {
+            System.out.println("Вы ввели:" + args[0] + ". Введите два значения");
+            return null;
+        }
+        return args;
+    }
 }

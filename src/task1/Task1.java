@@ -4,11 +4,12 @@ import java.util.Scanner;
 
 public class Task1 {
     public static void main(String[] args) {
-        Scanner sc = new Scanner(System.in);
-        System.out.print("Enter the number of elements in the array: ");
-        int n = sc.nextInt();
-        System.out.print("Enter the interval length: ");
-        int m = sc.nextInt() - 1;
+        String[] input = cmdInput(args);
+        if (input == null) {
+            return;
+        }
+        int n = Integer.parseInt(input[0]);
+        int m = Integer.parseInt(input[1]) - 1;
         /*
         init array
          */
@@ -43,5 +44,16 @@ public class Task1 {
         } while (true);
         System.out.println();
         System.out.println(path);
+    }
+
+    public static String[] cmdInput(String[] args) {
+        if (args.length == 0) {
+            System.out.println("Вы не ввели значение");
+            return null;
+        } else if (args.length == 1) {
+            System.out.println("Вы ввели:" + args[0] + ". Введите два значения");
+            return null;
+        }
+        return args;
     }
 }

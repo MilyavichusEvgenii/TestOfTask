@@ -7,7 +7,11 @@ import java.util.ArrayList;
 
 public class task4 {
     public static void main(String[] args) throws IOException {
-        int[] array = initArray("src/task4/numbers.txt");
+        String[] cmdInput = cmdInput(args);
+        if (cmdInput == null) {
+            return;
+        }
+        int[] array = initArray(cmdInput[0]);
         int number = checkNumber(array);
         equalizationArray(array, number);
     }
@@ -33,7 +37,11 @@ public class task4 {
         int temp = 0;
         int result = 0;
         for (int i = 0; i < numbers.length; i++) {
-            number = numbers[i];
+            if (numbers[i] == 0) {
+                continue;
+            } else {
+                number = numbers[i];
+            }
             for (int j = 0; j < numbers.length; j++) {
                 temp = temp + numbers[j] % number;
             }
@@ -63,5 +71,13 @@ public class task4 {
 
         }
         System.out.println("Минимальное количество шагов " + step);
+    }
+
+    public static String[] cmdInput(String[] args) {
+        if (args.length == 0) {
+            System.out.println("Вы не ввели значение");
+            return null;
+        }
+        return args;
     }
 }
