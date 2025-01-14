@@ -37,6 +37,18 @@ public class task4 {
         int temp = 0;
         int result = 0;
         for (int i = 0; i < numbers.length; i++) {
+            for (int j = i; j < numbers.length; j++) {
+
+                if (numbers[i] < numbers[j]) {
+                    temp = numbers[i];
+                    numbers[i] = numbers[j];
+                    numbers[j] = temp;
+                }
+
+            }
+        }
+        temp = 0;
+        for (int i = 0; i < numbers.length; i++) {
             if (numbers[i] == 0) {
                 continue;
             } else {
