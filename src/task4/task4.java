@@ -5,7 +5,7 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
 
-public class task4 {
+public class Task4 {
     public static void main(String[] args) throws IOException {
         String[] cmdInput = cmdInput(args);
         if (cmdInput == null) {
