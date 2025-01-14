@@ -37,30 +37,26 @@ public class task4 {
         int temp = 0;
         int result = 0;
         for (int i = 0; i < numbers.length; i++) {
-            for (int j = i; j < numbers.length; j++) {
-
-                if (numbers[i] < numbers[j]) {
-                    temp = numbers[i];
-                    numbers[i] = numbers[j];
-                    numbers[j] = temp;
-                }
-
-            }
-        }
-        temp = 0;
-        for (int i = 0; i < numbers.length; i++) {
             if (numbers[i] == 0) {
                 continue;
             } else {
                 number = numbers[i];
             }
             for (int j = 0; j < numbers.length; j++) {
-                temp = temp + numbers[j] % number;
+                if (number > numbers[j]) {
+                    temp += number - numbers[j];
+                } else if (number < numbers[j]) {
+                    temp += numbers[j] - number;
+                }
             }
-            if (temp > sum) {
+            if (i == 0) {
+                sum = temp;
+                result = number;
+            } else if (temp < sum) {
                 sum = temp;
                 result = number;
             }
+            temp = 0;
         }
         return result;
     }
