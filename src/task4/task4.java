@@ -37,11 +37,7 @@ public class task4 {
         int temp = 0;
         int result = 0;
         for (int i = 0; i < numbers.length; i++) {
-            if (numbers[i] == 0) {
-                continue;
-            } else {
-                number = numbers[i];
-            }
+            number = numbers[i];
             for (int j = 0; j < numbers.length; j++) {
                 if (number > numbers[j]) {
                     temp += number - numbers[j];
